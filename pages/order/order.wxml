@@ -1,5 +1,6 @@
 <!--pages/orderTime/index.wxml-->
 <view class='containt'>
+    <van-divider hairline />
     <scroll-view class="scroll-view_H" scroll-x>
         <view class='list' style='width:{{ width }}rpx'>
             <view bindtap="select" wx:for="{{ calendar }}" wx:for-item="item" wx:for-index="index" data-index="{{ index }}" class='listItem {{index==currentIndex? "current":""}}' wx:key='' data-date="{{ item.date}}">
@@ -8,14 +9,26 @@
             </view>
         </view>
     </scroll-view>
+    <van-divider hairline contentPosition="left">预约上午</van-divider>
     <view class='time'>
+        <view wx:for="{{ timeArr }}" wx:for-item="timeItem" wx:for-index="timeIndex" data-Tindex="{{ timeIndex }}" data-time="{{ timeItem.time}}" bindtap='selectTime' class='listItem {{ currentTime==timeIndex? "current":"" }}' wx:key=''>
+            <text>{{ timeItem.time }}</text>
+        </view>
+    </view>
+    <van-divider hairline contentPosition="left">预约下午</van-divider>
+    <view class='time'>
+       
         <view wx:for="{{ timeArr }}" wx:for-item="timeItem" wx:for-index="timeIndex" data-Tindex="{{ timeIndex }}" data-time="{{ timeItem.time}}" bindtap='selectTime' class='listItem {{ currentTime==timeIndex? "current":"" }}' wx:key=''>
             <text>{{ timeItem.time }}</text>
             <text>{{ timeItem.status }}</text>
         </view>
     </view>
-    <view class='operate'>
-        <button class='del'>删除</button>
-        <button class='save'>保存</button>
+    <van-divider hairline contentPosition="left">预约晚上</van-divider>
+    <view class='time'>
+       
+        <view wx:for="{{ timeArr }}" wx:for-item="timeItem" wx:for-index="timeIndex" data-Tindex="{{ timeIndex }}" data-time="{{ timeItem.time}}" bindtap='selectTime' class='listItem {{ currentTime==timeIndex? "current":"" }}' wx:key=''>
+            <text>{{ timeItem.time }}</text>
+            <text>{{ timeItem.status }}</text>
+        </view>
     </view>
 </view>
